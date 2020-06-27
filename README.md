@@ -1,1 +1,3 @@
-# Real-time-Tweet-Analytics-using-Hybrid-Hashtags-on-Twitter-Big-Data-Streams-
+# Real-time-Tweet-Analytics-using-Hybrid-Hashtags-on-Twitter-Big-Data-Streams
+
+This paper first presents a novel semi-automated technique that derives semantically relevant hashtags using domain-specific knowledge base of topic concepts and combines them with the existing tweet-based-hashtags to produce Hybrid Hashtags.  Further, to deal with the speed and volume of Big Data Streams of tweets, we present the online approach that updates the preprocessing and learning model incrementally in a real-time streaming environment using distributed framework Apache Storm.  Finally, to fully exploit the batch and stream environment performance advantages, we propose a comprehensive framework (Hybrid Hashtag based Tweet topic classification framework (HHTC)) that combines batch and online mechanisms in the most effective way. 
