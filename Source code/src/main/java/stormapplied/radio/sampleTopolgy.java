@@ -71,12 +71,12 @@ public class sampleTopolgy {
 		builder.setBolt("stringToWordBolt", new StringToWordVectorBolt2(FILTER_SET_SIZE, WORDS_TO_KEEP),1).shuffleGrouping("instancebolt");
 		builder.setBolt("ozaBoostBolt:naiveBayesMultinomial", new OzaBoostBolt("bayes.NaiveBayesMultinomial"),1).shuffleGrouping("stringToWordBolt");
 		builder.setBolt("statistics:naiveBayesMultinomial", new StatisticsBolt(label.size(),STAT_RES),1).shuffleGrouping("ozaBoostBolt:naiveBayesMultinomial");
-		/*builder.setBolt("StatsPrinterBolt:naiveBayesMultinomial", new StatsPrinterBolt("naiveBayesMultinominal")).shuffleGrouping("statistics:naiveBayesMultinomial");
+		builder.setBolt("StatsPrinterBolt:naiveBayesMultinomial", new StatsPrinterBolt("naiveBayesMultinominal")).shuffleGrouping("statistics:naiveBayesMultinomial");
 		builder.setBolt("StatsWriterBolt:naiveBayesMultinomial", new StatsWriterBolt("naiveBayesMultinominal", resultsFolder)).shuffleGrouping("statistics:naiveBayesMultinomial"); 
-		*/
-	 	//LocalCluster cluster = new LocalCluster();
-		StormSubmitter.submitTopology("sampleTopolgy", config, builder.createTopology());
- 		//cluster.submitTopology("sampleTopolgy", config, builder.createTopology());
+		
+	 	LocalCluster cluster = new LocalCluster();
+		//StormSubmitter.submitTopology("sampleTopolgy", config, builder.createTopology());
+ 		cluster.submitTopology("sampleTopolgy", config, builder.createTopology());
  			 
 		Thread.sleep(10000);
 		
